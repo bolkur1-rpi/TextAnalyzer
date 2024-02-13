@@ -1,0 +1,72 @@
+html {
+  background-color: #d2d6d3;
+}
+
+#banner {
+  background-color: white;
+  height: 60px;
+  width: 98.8%;
+  padding: 8px;
+  border-radius: 2px;
+  border-style: solid;
+  overflow: hidden;
+}
+
+#upload {
+  float: left;
+}
+
+#user-info {
+  text-align: right;
+  float: right;
+}
+
+#wrapper {
+  background-color: white;
+  width: 98.8%;
+  padding: 8px;
+  border-radius: 2px;
+  border-style: solid;
+  margin-top: 0.4%;
+  overflow: auto;
+}
+
+#login-wrapper {
+  background-color: white;
+  width: 12.1%;
+  padding: 8px;
+  border-radius: 2px;
+  border-style: solid;
+  margin-top: 0.4%;
+  overflow: auto;
+}
+
+#content {
+  float: left;
+}
+
+input[type=submit] {
+  border-radius: 2px;
+  border-style: solid black;
+}
+
+input[type=submit]:hover {
+  background-color: #d2d6d3;
+}
+
+input[type=file]::file-selector-button:active {
+  background-color: gray;
+}
+
+input[type=file]::file-selector-button {
+  border-radius: 2px;
+  border-style: solid black;
+}
+
+input[type=file]::file-selector-button:hover {
+  background-color: #d2d6d3;
+}
+
+input[type=file]::file-selector-button:active {
+  background-color: gray;
+}
