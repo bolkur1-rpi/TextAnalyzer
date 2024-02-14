@@ -34,6 +34,7 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 <body>
 <div id="wrapper">
   <div id="content">
+    asd
   <?php
 
   ini_set('display_errors', 1);
