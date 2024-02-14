@@ -50,6 +50,19 @@ html {
   overflow: auto;
 }
 
+.borderButton {
+  border-radius: 2px;
+  border-style: solid black;
+}
+
+.borderButton:hover {
+  background-color: #d2d6d3;
+}
+
+.borderButton:active {
+  background-color: gray;
+}
+
 input[type=submit] {
   border-radius: 2px;
   border-style: solid black;
