@@ -39,6 +39,7 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
   </div>
 </div>
 </header>
+
 <body>
 <div id="wrapper">
   <div id="content">
