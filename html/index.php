@@ -64,10 +64,10 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
   $result = $conn->query($sql);
   echo "<a>Your submissions: <br></a>";
   if ($result->num_rows > 0) {
-      // output data of each row
+      // Output submissions
       while($row = $result->fetch_assoc()) {
         echo "<div id='info'><img src='img/read.png' alt='read' height='12' width='12' title='Info'></a>";
-        echo $row["paper_name"]. " (". $row["student_name"]. ")";
+        echo $row["paper_name"];
         
       }
   } else {

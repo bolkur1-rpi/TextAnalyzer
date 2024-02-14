@@ -4,8 +4,11 @@ ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
+session_start();
+if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
+
 $target_dir = "../temp/";
-$user = "gud";
+$user = $_SESSION['login'];
 $file_name = str_replace(' ', '_', basename($_FILES["fileToUpload"]["name"]));
 $target_file = $target_dir . str_replace(' ', '_', basename($_FILES["fileToUpload"]["name"]));
 $uploadOk = 1;
@@ -44,8 +47,8 @@ if ($uploadOk == 0) {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
     sleep(1);
     if (file_exists("../temp/test.txt")) {
-      echo $user;
-      echo $file_name;
+      echo "User: ".$user."<br>";
+      echo "File name: ".$file_name."<br>";
       $run = shell_exec("../bash/copyToUploads.sh $user $file_name");
       echo "The file ". htmlspecialchars(basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
       echo "<br><a href='../'> Go back </a>";
