@@ -40,7 +40,7 @@ DROP PROCEDURE IF EXISTS getStudentIdByName;
 DELIMITER $$
 CREATE PROCEDURE getStudentIdByName(IN student_name_var VARCHAR(255), OUT student_id_var INT)
 BEGIN
-SELECT student_id FROM student INTO student_name_var WHERE student_name = student_name_var;
+SELECT student_id FROM student WHERE student_name = student_name_var INTO student_name_var;
 END $$
 DELIMITER ;
 
