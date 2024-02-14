@@ -44,6 +44,7 @@ CALL createNewStudent('Oli');
 
 -- ----------------------------------------
 -- Function createNewPaper(
+--  VARCHAR(255)
 -- 	VARCHAR(255)
 -- 	INT
 -- 	INT
@@ -51,6 +52,7 @@ CALL createNewStudent('Oli');
 -- )
 -- takes four(4) parameters:
 -- 	paper_name,
+--  paper_display_name,
 -- 	number_of_words,
 -- 	number_of_unique_words,
 -- 	student_id
