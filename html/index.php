@@ -69,7 +69,7 @@ if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
         echo "<br>". $row["paper_name"]. " (". $row["student_name"]. ")<br>";
-        echo "<td width='2%'>"."<a href='read.php?id=".$row['id']."'><img src='images/read.png' alt='read' height='32' width='32' title='Kaga'></a>"; // 'Kaga' ikon
+        echo "<td width='2%'>"."<a href='read.php?id=".$row['id']."'><img src='img/read.png' alt='read' height='32' width='32' title='Kaga'></a>"; // 'Kaga' ikon
     }
 } else {
     echo "0 results";
