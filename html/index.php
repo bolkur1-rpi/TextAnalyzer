@@ -75,8 +75,9 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
       // Output submissions
       while($row = $result->fetch_assoc()) {
         $testur = "riggar :) :)";
-        echo "<img src='img/read.png' onClick='populateContent(".$testur."') alt='Info' height='12' width='12' title='Info'></img><br>";
+        echo "<a><img src='img/read.png' onClick='populateContent(".$testur."') alt='Info' height='12' width='12' title='Info'></img></a>";
         echo $row["paper_name"];
+        echo "<br>";
       }
   } else {
       echo "No submissions found.";
