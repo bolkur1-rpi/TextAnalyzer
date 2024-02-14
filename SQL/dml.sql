@@ -60,7 +60,7 @@ DELIMITER ;
 -- ------------------------------------
 DROP PROCEDURE IF EXISTS getAllPaperNamesByStudentName;
 DELIMITER $$
-CREATE PROCEDURE getAllPaperNameByStudentName(IN student_name_var INT)
+CREATE PROCEDURE getAllPaperNamesByStudentName(IN student_name_var INT)
 BEGIN
 SELECT paper_name FROM paper WHERE student_name = student_name_var;
 END $$
