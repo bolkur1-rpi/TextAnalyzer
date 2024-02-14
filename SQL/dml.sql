@@ -25,24 +25,24 @@ DELIMITER ;
 -- ------------------------------------
 --  RETURN STUDENT NAME BY STUDENT ID
 -- ------------------------------------
--- DROP PROCEDURE IF EXISTS getStudentNameById;
--- DELIMITER $$
--- CREATE PROCEDURE getStudentNameById(IN student_id_var INT)
--- BEGIN
--- SELECT student_name FROM student WHERE student_id = student_id_var;
--- END $$
--- DELIMITER ;
+DROP PROCEDURE IF EXISTS getStudentNameById;
+DELIMITER $$
+CREATE PROCEDURE getStudentNameById(IN student_id_var INT)
+BEGIN
+SELECT student_name FROM student WHERE student_id = student_id_var;
+END $$
+DELIMITER ;
 
 -- ------------------------------------
 --  RETURN STUDENT ID BY STUDENT NAME
 -- ------------------------------------
--- DROP PROCEDURE IF EXISTS getStudentIdByName;
--- DELIMITER $$
--- CREATE PROCEDURE getStudentIdByName(IN student_name VARCHAR(255), OUT student_id INT)
--- BEGIN
--- SELECT student_id FROM student WHERE student_name = student_name_var;
--- END $$
--- DELIMITER ;
+DROP PROCEDURE IF EXISTS getStudentIdByName;
+DELIMITER $$
+CREATE PROCEDURE getStudentIdByName(IN student_name_var VARCHAR(255), OUT student_id_var INT)
+BEGIN
+SELECT student_id FROM student INTO student_name_var WHERE student_name = student_name_var;
+END $$
+DELIMITER ;
 
 -- ------------------------------------
 --         RETURNS ALL PAPER ID
@@ -102,10 +102,6 @@ SELECT number_of_unique_words FROM paper WHERE paper_name = paper_name_var;
 END $$
 DELIMITER ;
 
-
-
-
-
 -- ------------------------------------
 --          INSERT FUNCTIONS
 -- ------------------------------------
@@ -136,13 +132,18 @@ VALUES (paper_name_var, paper_display_name_var, number_of_words_var, number_of_u
 END $$
 DELIMITER ;
 
+
+-- ------------------------------------
+-- IF STUDENT NAME EXISTS, GET STUDENT ID
+-- ------------------------------------
+
+
+
+
 -- ------------------------------------
 --             TRIGGERS
 -- ------------------------------------
 
--- ------------------------------------
---  CHECK IF STUDENT_ID EXISTS TRIGGER
--- ------------------------------------
 
 
 -- ------------------------------------
