@@ -80,8 +80,7 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 
 <script>
   function populateContent(fileName) {
-    var fleName = document.getElementById("fileName").innerHTML;
-    fileName = "Hey bei.";
+    document.getElementById("fileName").innerHTML = "Hey Bei";
   }
 </script>
 
