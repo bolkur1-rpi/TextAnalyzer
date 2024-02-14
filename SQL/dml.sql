@@ -129,10 +129,10 @@ DELIMITER ;
 -- Add trigger: if student ID does not exist, create student
 DROP PROCEDURE IF EXISTS createNewPaper;
 DELIMITER $$
-CREATE PROCEDURE createNewPaper(IN paper_name_var VARCHAR(255), IN paper_display_name_var VARCHAR(255), IN number_of_words_var INT, IN number_of_unique_words_var INT, IN student_name_var INT)
+CREATE PROCEDURE createNewPaper(IN paper_name_var VARCHAR(255), IN paper_display_name_var VARCHAR(255), IN number_of_words_var INT, IN number_of_unique_words_var INT, IN student_id_var INT)
 BEGIN
-INSERT INTO paper(paper_name, paper_display_name, number_of_words, number_of_unique_words, student_name)
-VALUES (paper_name_var, paper_display_name_var, number_of_words_var, number_of_unique_words_var, student_name_var);
+INSERT INTO paper(paper_name, paper_display_name, number_of_words, number_of_unique_words, student_id)
+VALUES (paper_name_var, paper_display_name_var, number_of_words_var, number_of_unique_words_var, student_id_var);
 END $$
 DELIMITER ;
 
