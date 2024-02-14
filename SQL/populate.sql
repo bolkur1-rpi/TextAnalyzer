@@ -40,9 +40,7 @@ CALL createNewStudent('Teitur');
 -- student_id: 6
 CALL createNewStudent('Per');
 -- student_id: 7
-CALL createNewStudent('Per');
--- student_id: 8
-CALL createNewStudent('Dovni Oli');
+CALL createNewStudent('Oli');
 
 -- ----------------------------------------
 -- Function createNewPaper(
