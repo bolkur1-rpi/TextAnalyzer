@@ -32,11 +32,11 @@ html {
 }
 
 #content {
-  float: left;
+  float: right;
 }
 
 #submissions {
-  float: right;
+  float: left;
 }
 
 #login-wrapper {
