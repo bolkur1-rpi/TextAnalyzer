@@ -8,6 +8,7 @@ import random
 
 name = sys.argv[1]
 title = sys.argv[2]
+check = sys.argv[3]
 
 def create_connection(host_name, user_name, user_password, db_name):
     connection = None
@@ -85,6 +86,13 @@ def uniqueWordAmount(words):
     unique.sort()
     return unique
 
+def check(check, name):
+    if(check == 0):
+        create_user = "CALL createNewStudent(" + name + ");"
+        execute_query(connection, create_user)
+
+
+check(check, name)
 random_name = randomizeName()
 text = fileHandler(title, random_name)
 words = getWords(text)
@@ -92,7 +100,5 @@ word_amount = amount(words)
 unique = uniqueWordAmount(words)
 unique_amount = amount(unique)
 add = query_builder(random_name, title, word_amount, unique_amount, name)
-
 execute_query(connection, add)
-
 connection.close()
