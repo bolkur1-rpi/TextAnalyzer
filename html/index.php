@@ -62,12 +62,13 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 
   $sql = "SELECT * FROM paper, student WHERE student.student_id = paper.student_id AND student.student_name = '".$_SESSION['login']."'";
   $result = $conn->query($sql);
+  $_SESSION['sub_count'] = $result->num_rows;
   echo "<a>Your submissions: <br></a>";
   if ($result->num_rows > 0) {
       // Output submissions
       while($row = $result->fetch_assoc()) {
         $testur = "riggar :) :)"
-        echo <div onclick="populateContent(\''.$testur.'\')">asd<img src='img/read.png' alt='Info' height='12' width='12' title='Info'></a>;
+        //echo <div onclick="populateContent(\''.$testur.'\')">asd<img src='img/read.png' alt='Info' height='12' width='12' title='Info'></a>;
         echo $row["paper_name"];
       }
   } else {
