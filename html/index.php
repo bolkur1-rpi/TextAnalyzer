@@ -74,8 +74,7 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
   if ($result->num_rows > 0) {
       // Output submissions
       while($row = $result->fetch_assoc()) {
-        $testur = "riggar :) :)";
-        echo "<button><img src='img/read.png' onclick='populateContent(\".$testur.\")' alt='Info' height='12' width='12' title='Info'></img></button>";
+        echo "<button><img src='img/read.png' onclick='populateContent(\".$row[paper_name].\")' alt='Info' height='12' width='12' title='Info'></img></button>";
         echo $row["paper_name"];
         echo "<br>";
       }
