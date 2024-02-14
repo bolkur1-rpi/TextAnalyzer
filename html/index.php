@@ -11,6 +11,13 @@ session_start();
 if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 ?>
 
+<script>
+  function populateContent() {
+    console.log(fileName)
+    document.getElementById("fileName").innerHTML = "riggar";
+  }
+</script>
+
 </head>
 <header>
 
@@ -68,7 +75,7 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
       // Output submissions
       while($row = $result->fetch_assoc()) {
         $testur = "riggar :) :)";
-        echo "<img src='img/read.png' onClick='populateContent(".$testur."') alt='Info' height='12' width='12' title='Info'></img>";
+        echo "<img src='img/read.png' onClick='populateContent(".$testur."') alt='Info' height='12' width='12' title='Info'></img><br>";
         echo $row["paper_name"];
       }
   } else {
@@ -79,13 +86,5 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
   ?>
   </div>
 </div>
-
-<script>
-  function populateContent() {
-    console.log(fileName)
-    document.getElementById("fileName").innerHTML = "riggar";
-  }
-</script>
-
 </body>
 </html>
