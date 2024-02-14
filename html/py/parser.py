@@ -95,4 +95,4 @@ add = query_builder(random_name, title, word_amount, unique_amount, name)
 
 execute_query(connection, add)
 
-
+connection.close()
