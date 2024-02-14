@@ -7,13 +7,8 @@
   <link rel="stylesheet" type="text/css" href="css/index.css">
 
 <?php
-
 session_start();
-
-if(!isset($_SESSION['login'])) {
-    header("Location: /php/login.php");
-}
-
+if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 ?>
 
 </head>
@@ -72,7 +67,7 @@ if ($conn->connect_error) {
 
 $sql = "SELECT * FROM paper, student WHERE student.student_id = paper.student_id AND student.student_name = '".$_SESSION['login']."'";
 $result = $conn->query($sql);
-echo "<a>Your submissions: <br></a>"
+echo "<a>Your submissions: <br></a>";
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
@@ -88,7 +83,26 @@ $conn->close();
   </div>
 </div>
 
+<script>
 
+var box = document.getElementById("box");
+var close = document.getElementById("info");
+var span = document.getElementsByClassName("close")[0];
+
+close.onclick = function() {
+  box.style.display = "block";
+}
+
+span.onclick = function() {
+  box.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == box) {
+    box.style.display = "none";
+  }
+}
+</script>
 
 </body>
 </html>
