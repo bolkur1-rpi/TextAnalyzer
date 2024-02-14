@@ -13,7 +13,7 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 
 <script>
   function populateContent() {
-    console.log(fileName)
+    console.log(fileName);
     document.getElementById("fileName").innerHTML = "riggar";
   }
 </script>
@@ -75,7 +75,7 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
       // Output submissions
       while($row = $result->fetch_assoc()) {
         $testur = "riggar :) :)";
-        echo "<a><img src='img/read.png' onClick='populateContent(".$testur."') alt='Info' height='12' width='12' title='Info'></img></a>";
+        echo "<a><img src='img/read.png' onclick='populateContent(".$testur."') alt='Info' height='12' width='12' title='Info'></img></a>";
         echo $row["paper_name"];
         echo "<br>";
       }
