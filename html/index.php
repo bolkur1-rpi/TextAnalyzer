@@ -34,7 +34,9 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 <body>
 <div id="wrapper">
   <div id="content">
-    asd
+    <a id="fileName"></a>
+  </div>
+  <div id="submissions">
   <?php
 
   ini_set('display_errors', 1);
@@ -73,9 +75,6 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 
   $conn->close();
   ?>
-  </div>
-  <div id="submissions">
-    <a id="fileName"></a>
   </div>
 </div>
 
