@@ -34,7 +34,7 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 <body>
 <div id="wrapper">
   <div id="content">
-    <a id="fileName"></a>
+    <a id="fileName">asd</a>
   </div>
   <div id="submissions">
   <?php
@@ -80,7 +80,8 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 
 <script>
   function populateContent(fileName) {
-    document.getElementById("fileName").innerHTML = fileName;
+    var fleName = document.getElementById("fileName").innerHTML;
+    fileName = "Hey bei.";
   }
 </script>
 
