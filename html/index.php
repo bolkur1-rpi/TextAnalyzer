@@ -28,27 +28,6 @@ if(!isset($_SESSION['login'])) {
 
 </div>
 
-<script>
-
-var box = document.getElementById("box");
-var close = document.getElementById("info");
-var span = document.getElementsByClassName("close")[0];
-
-close.onclick = function() {
-  box.style.display = "block";
-}
-
-span.onclick = function() {
-  box.style.display = "none";
-}
-
-window.onclick = function(event) {
-  if (event.target == box) {
-    box.style.display = "none";
-  }
-}
-</script>
-
 <div id="banner">
   <div id="upload">
     <form action="/php/upload.php" method="post" enctype="multipart/form-data">
@@ -110,5 +89,27 @@ $conn->close();
 ?>
   </div>
 </div>
+
+<script>
+
+var box = document.getElementById("box");
+var close = document.getElementById("info");
+var span = document.getElementsByClassName("close")[0];
+
+close.onclick = function() {
+  box.style.display = "block";
+}
+
+span.onclick = function() {
+  box.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == box) {
+    box.style.display = "none";
+  }
+}
+</script>
+
 </body>
 </html>
