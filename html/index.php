@@ -42,8 +42,8 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 <body>
 <div id="wrapper">
   <div id="content">
-    <a id="displayName">Display name</a>
-    <a id="wordCount">Word Count</a>
+    <a id="displayName">Display name</a></br>
+    <a id="wordCount">Word Count</a></br>
     <a id="wordCountUnique">Uniqie word count</a>
   </div>
   <div id="submissions">
@@ -70,7 +70,7 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
     die("Connection failed: " . $conn->connect_error);
   }
 
-  $sql = "SELECT * FROM paper, student WHERE student.id = paper_id AND student.student_name = '".$_SESSION['login']."'";
+  $sql = "SELECT * FROM paper, student WHERE student_id = paper_id AND student.student_name = '".$_SESSION['login']."'";
   $result = $conn->query($sql);
   $_SESSION['sub_count'] = $result->num_rows;
   echo "<h2>Your submissions: <br></h2>";
