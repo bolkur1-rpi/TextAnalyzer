@@ -38,9 +38,23 @@ def execute_query(connection, query):
     except Error as e:
         print(f'Feilur "{e}" hendi')
 
-def query_builder(filename, title, number_of_words, number_of_unique_words, student_name):
-    q = "CALL createNewPaper(" + "'" + filename + "', " + str(title) + ', ' + str(number_of_words) + ', ' + str(number_of_unique_words) +  + str(student_name) + ");"
+def query_builder(filename, title, number_of_words, number_of_unique_words, id):
+    q = "CALL createNewPaper(" + "'" + filename + "', " + str(title) + ', ' + str(number_of_words) + ', ' + str(number_of_unique_words) +  + str(id) + ");"
     return q
+
+
+
+def id_query(connection, name):
+    cursor = connection.cursor()
+    try:
+        id = cursor.callproc('getStudentIdByName', name)
+        connection.commit()
+        print("Query succ")
+        return id
+    except Error as e:
+        print(f'Feilur "{e}" hendi')
+
+
 
 
 def fileHandler(title, rname):
@@ -92,13 +106,16 @@ def check(check, name):
         execute_query(connection, create_user)
 
 
+
+
 check(check, name)
+id = id_query(name)
 random_name = randomizeName()
 text = fileHandler(title, random_name)
 words = getWords(text)
 word_amount = amount(words)
 unique = uniqueWordAmount(words)
 unique_amount = amount(unique)
-add = query_builder(random_name, title, word_amount, unique_amount, name)
+add = query_builder(random_name, title, word_amount, unique_amount, id)
 execute_query(connection, add)
 connection.close()
