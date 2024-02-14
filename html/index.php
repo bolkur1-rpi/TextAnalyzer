@@ -71,8 +71,9 @@ echo "<a>Your submissions: <br></a>";
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-      echo "<br>". $row["paper_name"]. " (". $row["student_name"]. ")";
-      echo "<div id='info'><img src='img/read.png' alt='read' height='24' width='24' title='Info'></a>"; // 'Kaga' ikon
+      echo "<div id='info'><img src='img/read.png' alt='read' height='24' width='24' title='Info'></a>";
+      echo $row["paper_name"]. " (". $row["student_name"]. ")";
+      
     }
 } else {
     echo "0 results";
