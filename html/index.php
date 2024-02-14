@@ -13,7 +13,6 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 
 <script>
   function populateContent(fileName) {
-    console.log(fileName);
     document.getElementById("fileName").innerHTML = fileName;
   }
 </script>
@@ -41,7 +40,7 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 <body>
 <div id="wrapper">
   <div id="content">
-    <a id="fileName">asd</a>
+    <h2 id="fileName">asd</h2>
   </div>
   <div id="submissions">
   <?php
@@ -70,13 +69,12 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
   $sql = "SELECT * FROM paper, student WHERE student.student_name = '".$_SESSION['login']."'";
   $result = $conn->query($sql);
   $_SESSION['sub_count'] = $result->num_rows;
-  echo "<a>Your submissions: <br></a>";
+  echo "<h2>Your submissions: <br></h2>";
   if ($result->num_rows > 0) {
       // Output submissions
       while($row = $result->fetch_assoc()) {
-        echo "<button class='borderButton'><img src='img/read.png' onclick='populateContent(\"$row[paper_name]\")' alt='Info' height='12' width='12' title='Info'></img></button>";
-        echo $row["paper_name"];
-        echo "<br>";
+        echo "<button class='borderButton'><img src='img/read.png' onclick='populateContent(\"$row[paper_name]\", \"$row[paper_name]\")' alt='Info' height='12' width='12' title='Info'></img></button>";
+        echo " " . $row["paper_name"] . "<br>";
       }
   } else {
       echo "No submissions found.";
