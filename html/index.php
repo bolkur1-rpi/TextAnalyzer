@@ -68,7 +68,7 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
       // Output submissions
       while($row = $result->fetch_assoc()) {
         $testur = "riggar :) :)";
-        echo "<div onclick="populateContent('.$testur.')">asd<img src='img/read.png' alt='Info' height='12' width='12' title='Info'></a>";
+        //echo "<div onclick="populateContent('.$testur.')">asd<img src='img/read.png' alt='Info' height='12' width='12' title='Info'></a>";
         echo $row["paper_name"];
       }
   } else {
