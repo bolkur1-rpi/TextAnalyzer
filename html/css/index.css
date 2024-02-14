@@ -32,13 +32,10 @@ html {
 }
 
 #content {
-  width: 100px;
   float: left;
-  border: 1px solid #888;
 }
 
 #submissions {
-  width: 20%;
   float: right;
 }
 

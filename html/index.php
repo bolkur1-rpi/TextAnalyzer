@@ -43,45 +43,45 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 <body>
 <div id="wrapper">
   <div id="content">
-<?php
+  <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+  ini_set('display_errors', 1);
+  ini_set('display_startup_errors', 1);
+  error_reporting(E_ALL);
 
-if (isset($_POST['reset'])) {
-  session_destroy();
-  header("Location: /php/login.php");
-}
+  if (isset($_POST['reset'])) {
+    session_destroy();
+    header("Location: /php/login.php");
+  }
 
-$servername = "localhost";
-$username = "root";
-$password = "bolkur1";
-$dbname = "textdb";
+  $servername = "localhost";
+  $username = "root";
+  $password = "bolkur1";
+  $dbname = "textdb";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+  // Create connection
+  $conn = new mysqli($servername, $username, $password, $dbname);
+  // Check connection
+  if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  }
 
-$sql = "SELECT * FROM paper, student WHERE student.student_id = paper.student_id AND student.student_name = '".$_SESSION['login']."'";
-$result = $conn->query($sql);
-echo "<a>Your submissions: <br></a>";
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-      echo "<div id='info'><img src='img/read.png' alt='read' height='12' width='12' title='Info'></a>";
-      echo $row["paper_name"]. " (". $row["student_name"]. ")";
-      
-    }
-} else {
-    echo "0 results";
-}
+  $sql = "SELECT * FROM paper, student WHERE student.student_id = paper.student_id AND student.student_name = '".$_SESSION['login']."'";
+  $result = $conn->query($sql);
+  echo "<a>Your submissions: <br></a>";
+  if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
+        echo "<div id='info'><img src='img/read.png' alt='read' height='12' width='12' title='Info'></a>";
+        echo $row["paper_name"]. " (". $row["student_name"]. ")";
+        
+      }
+  } else {
+      echo "0 results";
+  }
 
-$conn->close();
-?>
+  $conn->close();
+  ?>
   </div>
   <div id="submissions">
     <a>asd</a>
