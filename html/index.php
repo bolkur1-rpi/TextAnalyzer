@@ -34,7 +34,7 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 <body>
 <div id="wrapper">
   <div id="submissions">
-    <a>asd</a>
+    Name: <a id="fileName></a>
   </div>
   <div id="content">
   <?php
@@ -66,9 +66,8 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
   if ($result->num_rows > 0) {
       // Output submissions
       while($row = $result->fetch_assoc()) {
-        echo "<div id='info'><img src='img/read.png' alt='read' height='12' width='12' title='Info'></a>";
+        echo "<div onclick="populateContent($row["paper_name"])"><img src='img/read.png' alt='read' height='12' width='12' title='Info'></a>";
         echo $row["paper_name"];
-        
       }
   } else {
       echo "No submissions found.";
@@ -78,6 +77,12 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
   ?>
   </div>
 </div>
+
+<script>
+  function populateContent(fileName) {
+    document.getElementById("fileName").innerHTML = fileName;
+  }
+</script>
 
 </body>
 </html>
