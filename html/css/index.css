@@ -32,12 +32,12 @@ html {
 }
 
 #content {
-  float: right;
+  float: left;
 }
 
 #submissions {
   text-align: left;
-  float: left;
+  float: right;
 }
 
 #login-wrapper {
