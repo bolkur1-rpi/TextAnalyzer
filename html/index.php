@@ -81,7 +81,7 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 <script>
   function populateContent() {
     console.log(fileName)
-    document.getElementById("fileName").innerHTML = $row["paper_name"];
+    document.getElementById("fileName").innerHTML = "riggar";
   }
 </script>
 
