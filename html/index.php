@@ -12,9 +12,9 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 ?>
 
 <script>
-  function populateContent() {
+  function populateContent(fileName) {
     console.log(fileName);
-    document.getElementById("fileName").innerHTML = "riggar";
+    document.getElementById("fileName").innerHTML = fileName;
   }
 </script>
 
