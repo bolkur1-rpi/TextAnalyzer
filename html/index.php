@@ -18,6 +18,37 @@ if(!isset($_SESSION['login'])) {
 
 </head>
 <header>
+
+<div id="box" class="box">
+
+  <div class="box-content">
+    <span class="close">&times;</span>
+    <p>ASD</p>
+  </div>
+
+</div>
+
+<script>
+
+var box = document.getElementById("box");
+var close = document.getElementById("info");
+var span = document.getElementsByClassName("close")[0];
+
+close.onclick = function() {
+  box.style.display = "block";
+}
+
+span.onclick = function() {
+  box.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == box) {
+    box.style.display = "none";
+  }
+}
+</script>
+
 <div id="banner">
   <div id="upload">
     <form action="/php/upload.php" method="post" enctype="multipart/form-data">
@@ -59,17 +90,17 @@ $dbname = "textdb";
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+  die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT paper.paper_id, paper.paper_name, paper.student_id, student.student_id, student.student_name FROM paper, student WHERE student.student_id = paper.student_id AND student.student_name = '".$_SESSION['login']."'";
+$sql = "SELECT * FROM paper, student WHERE student.student_id = paper.student_id AND student.student_name = '".$_SESSION['login']."'";
 $result = $conn->query($sql);
-
+echo "<a>Your submissions: <br></a>"
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<br>". $row["paper_name"]. " (". $row["student_name"]. ")<br>";
-        echo "<td width='2%'>"."<a href='read.php?id=".$row['id']."'><img src='img/read.png' alt='read' height='32' width='32' title='Kaga'></a>"; // 'Kaga' ikon
+      echo "<br>". $row["paper_name"]. " (". $row["student_name"]. ")";
+      echo "<div id='info'><img src='img/read.png' alt='read' height='24' width='24' title='Info'></a>"; // 'Kaga' ikon
     }
 } else {
     echo "0 results";

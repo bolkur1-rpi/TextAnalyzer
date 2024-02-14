@@ -70,3 +70,35 @@ input[type=file]::file-selector-button:hover {
 input[type=file]::file-selector-button:active {
   background-color: gray;
 }
+
+
+/* View file info */
+.box {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.box-content {
+  margin: auto;
+  padding: 20px;
+  width: 80%;
+}
+
+.box-close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.box:hover,
+.box:focus {
+  cursor: pointer;
+}
