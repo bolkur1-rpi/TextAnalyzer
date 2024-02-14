@@ -66,7 +66,8 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
   if ($result->num_rows > 0) {
       // Output submissions
       while($row = $result->fetch_assoc()) {
-        echo "<div onclick='populateContent($row['paper_name'])'><img src='img/read.png' alt='Info' height='12' width='12' title='Info'></a>";
+        $testur = "riggar :) :)"
+        echo <div onclick="populateContent(\''.$testur.'\')">asd<img src='img/read.png' alt='Info' height='12' width='12' title='Info'></a>;
         echo $row["paper_name"];
       }
   } else {
@@ -79,9 +80,9 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 </div>
 
 <script>
-  function populateContent(fileName) {
+  function populateContent() {
     console.log(fileName)
-    document.getElementById("fileName").innerHTML = "Hey Bei";
+    document.getElementById("fileName").innerHTML = "riggar";
   }
 </script>
 
