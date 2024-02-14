@@ -37,9 +37,7 @@ if(!isset($_SESSION['login'])) {
     </form>
   </div>
   <div id="user-info">
-    <?php
-    echo "Current user: ".$_SESSION['login'];
-    ?><br><br>
+    <?php echo "Current user: ".$_SESSION['login'];?><br><br>
     <form method="post">
       <input type="submit" name="reset" value="Change user">
     </form>
@@ -90,26 +88,7 @@ $conn->close();
   </div>
 </div>
 
-<script>
 
-var box = document.getElementById("box");
-var close = document.getElementById("info");
-var span = document.getElementsByClassName("close")[0];
-
-close.onclick = function() {
-  box.style.display = "block";
-}
-
-span.onclick = function() {
-  box.style.display = "none";
-}
-
-window.onclick = function(event) {
-  if (event.target == box) {
-    box.style.display = "none";
-  }
-}
-</script>
 
 </body>
 </html>
