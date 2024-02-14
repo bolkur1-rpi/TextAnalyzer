@@ -14,14 +14,14 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 </head>
 <header>
 
-<div id="box" class="box">
+<!--<div id="box" class="box">
 
   <div class="box-content">
     <span class="close">&times;</span>
     <p>ASD</p>
   </div>
 
-</div>
+</div>-->
 
 <div id="banner">
   <div id="upload">
