@@ -45,6 +45,10 @@ html {
   float: left;
 }
 
+#submissions {
+  float: right;
+}
+
 input[type=submit] {
   border-radius: 2px;
   border-style: solid black;
