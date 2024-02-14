@@ -42,9 +42,9 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 <body>
 <div id="wrapper">
   <div id="content">
-    <a id="displayName">Display name</a></br>
-    <a id="wordCount">Word Count</a></br>
-    <a id="wordCountUnique">Unique word count</a>
+    </br><a id="displayName">Display name</a><br>
+    <br><a id="wordCount">Word Count</a><br>
+    <br><a id="wordCountUnique">Unique word count</a><br>
   </div>
   <div id="submissions">
   <?php
@@ -73,7 +73,6 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
   $sql = "SELECT * FROM paper, student WHERE student.student_id = paper.student_id AND student.student_name = '".$_SESSION['login']."'";
   $result = $conn->query($sql);
   $_SESSION['sub_count'] = $result->num_rows;
-  echo "<h2>Your submissions: <br></h2>";
   if ($result->num_rows > 0) {
       // Output submissions
       while($row = $result->fetch_assoc()) {
