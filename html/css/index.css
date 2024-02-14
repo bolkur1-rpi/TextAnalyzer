@@ -36,6 +36,7 @@ html {
 }
 
 #submissions {
+  text-align: left;
   float: left;
 }
 
