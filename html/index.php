@@ -33,9 +33,6 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 
 <body>
 <div id="wrapper">
-  <div id="submissions">
-    Name: <a id="fileName></a>
-  </div>
   <div id="content">
   <?php
 
@@ -75,6 +72,9 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 
   $conn->close();
   ?>
+  </div>
+  <div id="submissions">
+    <a id="fileName"></a>
   </div>
 </div>
 
