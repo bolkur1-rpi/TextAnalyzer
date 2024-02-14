@@ -14,8 +14,8 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 <script>
   function populateContent(fileName, words, uniqueWords) {
     document.getElementById("displayName").innerHTML = fileName;
-    document.getElementById("displayName").innerHTML = words;
-    document.getElementById("displayName").innerHTML = uniqueWords;
+    document.getElementById("wordCount").innerHTML = words;
+    document.getElementById("wordCountUnique").innerHTML = uniqueWords;
   }
 </script>
 
@@ -44,7 +44,7 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
   <div id="content">
     <a id="displayName">Display name</a></br>
     <a id="wordCount">Word Count</a></br>
-    <a id="wordCountUnique">Uniqie word count</a>
+    <a id="wordCountUnique">Unique word count</a>
   </div>
   <div id="submissions">
   <?php
