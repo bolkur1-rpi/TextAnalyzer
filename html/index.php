@@ -9,12 +9,6 @@
 <?php
 session_start();
 if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
-
-function getFileContents(fileName) {
-  //$output = file_get_contents("../uploads/".fileName.".txt");
-  $output = "asd";
-  return $output;
-}
 ?>
 
 <script>
@@ -66,6 +60,11 @@ function getFileContents(fileName) {
     header("Location: /php/login.php");
   }
 
+  function getFileContents($fileName) {
+    $output = file_get_contents("../uploads/".$fileName.".txt");
+    return $output;
+  }
+
   $servername = "localhost";
   $username = "root";
   $password = "bolkur1";
@@ -81,7 +80,6 @@ function getFileContents(fileName) {
   $sql = "SELECT * FROM paper, student WHERE student.student_id = paper.student_id AND student.student_name = '".$_SESSION['login']."'";
   $result = $conn->query($sql);
   //$_SESSION['sub_count'] = $result->num_rows;
-  $test = "Hetta er content";
   if ($result->num_rows > 0) {
       // Output submissions
       while($row = $result->fetch_assoc()) {
