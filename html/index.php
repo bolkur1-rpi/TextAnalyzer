@@ -20,8 +20,8 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
         }
     }
     var path = "../uploads/" + fileName + ".txt";
-    xhr.open("GET", path);
-    xhr.send();
+    req.open("GET", path);
+    req.send();
   }
 
   function populateContent(fileName, words, uniqueWords, fileContents) {
