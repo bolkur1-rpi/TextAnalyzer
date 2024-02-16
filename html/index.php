@@ -13,8 +13,8 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 
 <script>
 
-  function getFileName() {
-    return $test;
+  function getFileContents(fileName) {
+    return "Contents of given file."
   }
 
   function populateContent(fileName, words, uniqueWords, fileContents) {
