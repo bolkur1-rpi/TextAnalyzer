@@ -42,9 +42,9 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 <body>
 <div id="wrapper">
   <div id="content">
-    Display name:<a id="displayName"></a><br>
-    Word count: <br><a id="wordCount"></a><br>
-    Unique word count:<br><a id="wordCountUnique"></a><br>
+    Display name: <a id="displayName"></a><br>
+    Word count: <a id="wordCount"></a><br>
+    Unique word count: <a id="wordCountUnique"></a><br>
   </div>
   <div id="submissions">
   <?php
