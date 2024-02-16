@@ -9,14 +9,14 @@
 <?php
 session_start();
 if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
+
+function getFileContents(fileName) {
+  $output = file_get_contents("../uploads/".fileName.".txt");
+  return $output;
+}
 ?>
 
 <script>
-
-  function getFileContents(fileName) {
-    return "Contents of given file."
-  }
-
   function populateContent(fileName, words, uniqueWords, fileContents) {
     document.getElementById("displayName").innerHTML = fileName;
     document.getElementById("wordCount").innerHTML = words;
@@ -48,10 +48,10 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 <body>
 <div id="wrapper">
   <div id="content">
-    File name: <a id="displayName"></a><br>
+    Submission name: <a id="displayName"></a><br>
     Word count: <a id="wordCount"></a><br>
     Unique word count: <a id="wordCountUnique"></a><br>
-    file contents: <br><textarea id="fileContents" readonly></textarea><br>
+    Submission contents: <br><textarea id="fileContents" readonly></textarea><br>
   </div>
   <div id="submissions">
   <?php
