@@ -8,7 +8,6 @@ import random
 
 name = sys.argv[1]
 title = sys.argv[2]
-check = sys.argv[3]
 
 def create_connection(host_name, user_name, user_password, db_name):
     connection = None
