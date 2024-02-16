@@ -170,22 +170,3 @@ VALUES (paper_name_var, paper_display_name_var, number_of_words_var, number_of_u
 END $$
 DELIMITER ;
 */
--- ------------------------------------
--- IF STUDENT NAME EXISTS, GET STUDENT ID
--- ------------------------------------
-DROP TRIGGER IF EXISTS studentIdIsNull;
-DELIMITER $$
-CREATE TRIGGER studentIdIsNUll;
--- IF student_id exists
-SELECT IF(SELECT ISNULL(SELECT student_id_var FROM student), CALL createNewStudent(student_),"NO")
-DELIMITER ;
-
--- ------------------------------------
---             TRIGGERS
--- ------------------------------------
-
-
-
--- ------------------------------------
---      
--- ------------------------------------
