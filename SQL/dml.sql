@@ -12,7 +12,7 @@ USE textdb;
 -- ------------------------------------
 
 -- ------------------------------------
---       RETURNS ALL STUDENT IDS
+--       SELECT ALL STUDENT IDS
 -- ------------------------------------
 DROP PROCEDURE IF EXISTS getAllStudentNames;
 DELIMITER $$
@@ -23,7 +23,7 @@ END $$
 DELIMITER ;
 
 -- ------------------------------------
---  RETURN STUDENT NAME BY STUDENT ID
+--  SELECT STUDENT NAME BY STUDENT ID
 -- ------------------------------------
 DROP PROCEDURE IF EXISTS getStudentNameById;
 DELIMITER $$
@@ -36,16 +36,16 @@ DELIMITER ;
 -- ------------------------------------
 --  RETURN STUDENT ID BY STUDENT NAME
 -- ------------------------------------
-DROP PROCEDURE IF EXISTS getStudentIdByName;
+DROP PROCEDURE IF EXISTS returnStudentIdByName;
 DELIMITER $$
-CREATE PROCEDURE getStudentIdByName(IN student_name_var VARCHAR(255), OUT student_id_var INT)
+CREATE PROCEDURE returnStudentIdByName(IN student_name_var VARCHAR(255), OUT student_id_var INT)
 BEGIN
-SELECT student_id INTO student_name_var FROM student WHERE student_name = student_name_var;
+SELECT IFNULL((SELECT student_id INTO student_id_var FROM student WHERE student_name = student_name_var), 0);
 END $$
 DELIMITER ;
 
 -- ------------------------------------
---         RETURNS ALL PAPER ID
+--         SELECT ALL PAPER ID
 -- ------------------------------------
 DROP PROCEDURE IF EXISTS getAllPaperNames;
 DELIMITER $$
@@ -56,7 +56,7 @@ END $$
 DELIMITER ;
 
 -- ------------------------------------
---   RETURNS PAPER NAMES BY STUDENT NAME
+--   SELECT PAPER NAMES BY STUDENT NAME
 -- ------------------------------------
 DROP PROCEDURE IF EXISTS getAllPaperNamesByStudentName;
 DELIMITER $$
@@ -68,15 +68,15 @@ DELIMITER ;
 
 
 -- ------------------------------------
---       RETURN PAPER NAME BY ID
+--       SELECT PAPER NAME BY ID
 -- ------------------------------------
--- DROP PROCEDURE IF EXISTS getPaperNameById;
--- DELIMITER $$
--- CREATE PROCEDURE getPaperNameById(IN paper_id_var INT)
--- BEGIN
--- SELECT paper_name FROM paper WHERE paper_id = paper_id_var;
--- END $$
--- DELIMITER ;
+DROP PROCEDURE IF EXISTS getPaperNameById;
+DELIMITER $$
+CREATE PROCEDURE getPaperNameById(IN paper_id_var INT)
+BEGIN
+SELECT paper_name FROM paper WHERE paper_id = paper_id_var;
+END $$
+DELIMITER ;
 
 
 -- ------------------------------------
@@ -118,27 +118,65 @@ VALUES (student_name_var);
 END $$
 DELIMITER ;
 
-
 -- ------------------------------------
 --          CREATE NEW PAPER
 -- ------------------------------------
--- Add trigger: if student ID does not exist, create student
+USE linux_db;
 DROP PROCEDURE IF EXISTS createNewPaper;
 DELIMITER $$
-CREATE PROCEDURE createNewPaper(IN paper_name_var VARCHAR(255), IN paper_display_name_var VARCHAR(255), IN number_of_words_var INT, IN number_of_unique_words_var INT, IN student_id_var INT)
+CREATE PROCEDURE createNewPaper(IN paper_name_var VARCHAR(255), IN paper_display_name_var VARCHAR(255), IN number_of_words_var INT, IN number_of_unique_words_var INT, IN>BEGIN
+DECLARE student_id_var INT;
+DECLARE student_exists INT; -- 1 if it exists, 0 if it doesnt exist
+DECLARE last_auto_increment INT;
+-- If student name exists, create new paper, if it doesnt exist then create new student, then create new paper
+SET student_exists = 1;
+SET student_exists = (SELECT IF(EXISTS(SELECT student_id FROM student WHERE student_name = student_name_var), 1, 0));
+-- SET student_exists = (SELECT IF (IFNULL((SELECT student_id INTO student_id_var FROM student WHERE student_name = student_name_var), 1) = 1), 1, 0);
+-- If student exists, create new paper
+IF (SELECT student_exists = 1) THEN
+        INSERT INTO paper(paper_name, paper_display_name, number_of_words, number_of_unique_words, student_id)
+        VALUES (paper_name_var, paper_display_name_var, number_of_words_var, number_of_unique_words_var, student_id_var);
+END IF;
+-- If student doesnt exist, create new student and new paper
+IF (SELECT student_exists = 0) THEN
+        INSERT INTO student(student_name)
+        VALUES (student_name_var);
+        SET student_id_var = LAST_INSERT_ID();
+        INSERT INTO paper(paper_name, paper_display_name, number_of_words, number_of_unique_words, student_id)
+        VALUES (paper_name_var, paper_display_name_var, number_of_words_var, number_of_unique_words_var, student_id_var);
+END IF;
+END $$
+DELIMITER ;
+/*
+DROP PROCEDURE IF EXISTS createNewPaper;
+DELIMITER $$
+CREATE PROCEDURE createNewPaper(IN paper_name_var VARCHAR(255), IN paper_display_name_var VARCHAR(255), IN number_of_words_var INT, IN number_of_unique_words_var INT, IN student_name_var INT)
 BEGIN
+DECLARE student_id_temp_var INT;
+DECLARE student_exists INT; -- 1 if it exists, 0 if it doesnt exist
+-- If student name exists, create new paper, if it doesnt exist then create new student, then create new paper
+
+SET student_exists = (SELECT IF (IFNULL((SELECT student_id INTO student_id_temp_var FROM student WHERE student_name = student_name_var), 1) = 1), 1, 0);
+IF SELECT student_exists = 1 THEN
+
+
+SELECT IF(, "Yes: Create Paper", "No: Create Student, then create paper");
+-- CALL returnStudentIdByName(student_name_var, student_id_temp_var);
+SELECT @student_id_temp_var;
 INSERT INTO paper(paper_name, paper_display_name, number_of_words, number_of_unique_words, student_id)
 VALUES (paper_name_var, paper_display_name_var, number_of_words_var, number_of_unique_words_var, student_id_var);
 END $$
 DELIMITER ;
-
-
+*/
 -- ------------------------------------
 -- IF STUDENT NAME EXISTS, GET STUDENT ID
 -- ------------------------------------
-
-
-
+DROP TRIGGER IF EXISTS studentIdIsNull;
+DELIMITER $$
+CREATE TRIGGER studentIdIsNUll;
+-- IF student_id exists
+SELECT IF(SELECT ISNULL(SELECT student_id_var FROM student), CALL createNewStudent(student_),"NO")
+DELIMITER ;
 
 -- ------------------------------------
 --             TRIGGERS
