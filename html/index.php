@@ -12,16 +12,15 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 ?>
 
 <script>
-  function getFileContents(fileName) {
-    var req = new XMLHttpRequest();
-    //var path = "../uploads/" + fileName + ".txt";
-    var path = "../uploads/test.txt";
-    req.open("GET", path);
-    req.send();
-    req.onreadystatechange = function() {
-        if (req.readyState == 4 && req.status == 200) {
-            return req.responseText;
-        }
+  function getFileContents(file) {
+  var path = "../uploads/" + file + ".txt";
+  var req = new XMLHttpRequest();
+  req.open("GET", path, true);
+  req.send();
+  req.onreadystatechange = function() {
+      if (req.readyState== 4 && req.status == 200) {
+        return req.responseText;
+      }
     }
   }
 
