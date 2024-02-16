@@ -45,11 +45,11 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-    sleep(1);
+    sleep(1); // To make sure the file has been uploaded before proceeding
     if (file_exists("../temp/test.txt")) {
       echo "User: ".$user."<br>";
       echo "File name: ".$file_name."<br>";
-      $run = shell_exec("../bash/copyToUploads.sh $user $file_name $_SESSION['sub_count']");
+      $run = shell_exec("../bash/copyToUploads.sh $user $file_name");
       echo htmlspecialchars(basename( $_FILES["fileToUpload"]["name"])). " has been successfully uploaded.";
       echo "<br><a href='../'> Go back </a>";
     }
