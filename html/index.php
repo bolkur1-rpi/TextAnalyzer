@@ -44,7 +44,7 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
   <div id="content">
     File name: <a id="displayName"></a><br>
     Word count: <a id="wordCount"></a><br>
-    Unique word count: sdkanglsdnglsdnglsnd nsdlgn lksndgl nslkdng lnsdlkgnlsdng lknsdlgn lskdng klnsdlkgn skldng lknsdklgn lskdnglk nsdlkgn lskdng lknsdlkgn skldng lnsdglk nslkdng klnsldkgn lksdng lknsdlkg nlskdngl knsdlkg nlksdn g<a id="wordCountUnique"></a><br>
+    Unique word count: sdkanglsdnglsdnglsnd nsdlgn lksndgl nslkdng lnsdlkgnlsdng lknsdlgn lskdng klnsdlkgn skldng lknsdklgn lskdnglk nsdlkgn lskdng lknsdlkgn skldng lnsdglk nslkdng klnsldkgn lksdng lknsdlkg nlskdngl knsdlkg nlksdn g skndglksndg lknsdlkg nskldng klsndg lksndg klnsdklg nlksndgl knsdlkgn klsdngkl sndglk sdnglskdng lk<a id="wordCountUnique"></a><br>
   </div>
   <div id="submissions">
   <?php
