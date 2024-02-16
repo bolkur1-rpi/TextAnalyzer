@@ -13,12 +13,13 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 
 <script>
   function getFileContents(file) {
-  var path = "../uploads/" + file + ".txt";
+  //var path = "uploads/" + file + ".txt";
+  var path = "uploads/test.txt";
   var req = new XMLHttpRequest();
   req.open("GET", path, true);
   req.send();
   req.onreadystatechange = function() {
-      if (req.readyState== 4 && req.status == 200) {
+      if (req.readyState == 4 && req.status == 200) {
         return req.responseText;
       }
     }
