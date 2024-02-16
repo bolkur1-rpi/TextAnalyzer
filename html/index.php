@@ -70,16 +70,15 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
   $password = "bolkur1";
   $dbname = "textdb";
 
-  // Create connection
+  // Connect
   $conn = new mysqli($servername, $username, $password, $dbname);
-  // Check connection
+  // Connection check
   if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
 
   $sql = "SELECT * FROM paper, student WHERE student.student_id = paper.student_id AND student.student_name = '".$_SESSION['login']."'";
   $result = $conn->query($sql);
-  //$_SESSION['sub_count'] = $result->num_rows;
   if ($result->num_rows > 0) {
       // Output submissions
       while($row = $result->fetch_assoc()) {
