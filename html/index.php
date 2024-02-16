@@ -9,7 +9,6 @@
 <?php
 session_start();
 if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
-$test = "Hetta er content";
 ?>
 
 <script>
@@ -81,10 +80,11 @@ $test = "Hetta er content";
   $sql = "SELECT * FROM paper, student WHERE student.student_id = paper.student_id AND student.student_name = '".$_SESSION['login']."'";
   $result = $conn->query($sql);
   //$_SESSION['sub_count'] = $result->num_rows;
+  $test = "Hetta er content";
   if ($result->num_rows > 0) {
       // Output submissions
       while($row = $result->fetch_assoc()) {
-        echo "<button class='borderButton' onclick='populateContent(\"$row[paper_display_name]\", \"$row[number_of_words]\", \"$row[number_of_unique_words]\", getFileName(\"$row[test]\"))'><img src='img/read.png' alt='Info' height='12' width='12' title='Info'></img></button>";
+        echo "<button class='borderButton' onclick='populateContent(\"$row[paper_display_name]\", \"$row[number_of_words]\", \"$row[number_of_unique_words]\", getFileName(\"$test\"))'><img src='img/read.png' alt='Info' height='12' width='12' title='Info'></img></button>";
         echo " " . $row["paper_name"] . "<br>";
       }
   } else {
