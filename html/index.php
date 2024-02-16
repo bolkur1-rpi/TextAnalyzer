@@ -83,7 +83,7 @@ function getFileContents($fileName) {
       // Output submissions
       while($row = $result->fetch_assoc()) {
         echo "<button class='borderButton' onclick='populateContent(\"$row[paper_display_name]\", \"$row[number_of_words]\", \"$row[number_of_unique_words]\",
-         file_get_contents('../upload/'.\"$row[paper_name]\".'txt'))'><img src='img/read.png' alt='Info' height='12' width='12' title='Info'></img></button>";
+         file_get_contents('../uploads/'+\"$row[paper_name]\"+'.txt'))'><img src='img/read.png' alt='Info' height='12' width='12' title='Info'></img></button>";
         echo " " . $row["paper_display_name"] . "<br>";
       }
   } else {
