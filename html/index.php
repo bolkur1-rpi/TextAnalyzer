@@ -11,7 +11,8 @@ session_start();
 if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 
 function getFileContents(fileName) {
-  $output = file_get_contents("../uploads/".fileName.".txt");
+  //$output = file_get_contents("../uploads/".fileName.".txt");
+  $output = "asd";
   return $output;
 }
 ?>
