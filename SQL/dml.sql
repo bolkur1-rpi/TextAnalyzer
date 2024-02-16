@@ -124,7 +124,8 @@ DELIMITER ;
 USE linux_db;
 DROP PROCEDURE IF EXISTS createNewPaper;
 DELIMITER $$
-CREATE PROCEDURE createNewPaper(IN paper_name_var VARCHAR(255), IN paper_display_name_var VARCHAR(255), IN number_of_words_var INT, IN number_of_unique_words_var INT, IN>BEGIN
+CREATE PROCEDURE createNewPaper(IN paper_name_var VARCHAR(255), IN paper_display_name_var VARCHAR(255), IN number_of_words_var INT, IN number_of_unique_words_var INT, IN student_name_var VARCHAR(255))
+BEGIN
 DECLARE student_id_var INT;
 DECLARE student_exists INT; -- 1 if it exists, 0 if it doesnt exist
 DECLARE last_auto_increment INT;
