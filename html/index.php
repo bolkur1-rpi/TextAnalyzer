@@ -12,10 +12,16 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 ?>
 
 <script>
-  function populateContent(fileName, words, uniqueWords) {
+
+  function getFileName() {
+    return $test;
+  }
+
+  function populateContent(fileName, words, uniqueWords, fileContents) {
     document.getElementById("displayName").innerHTML = fileName;
     document.getElementById("wordCount").innerHTML = words;
     document.getElementById("wordCountUnique").innerHTML = uniqueWords;
+    document.getElementById("fileContents").innerHTML = fileContents;
   }
 </script>
 
@@ -44,7 +50,8 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
   <div id="content">
     File name: <a id="displayName"></a><br>
     Word count: <a id="wordCount"></a><br>
-    Unique word count: sdkanglsdnglsdnglsnd nsdlgn lksndgl nslkdng lnsdlkgnlsdng lknsdlgn lskdng klnsdlkgn skldng lknsdklgn lskdnglk nsdlkgn lskdng lknsdlkgn skldng lnsdglk nslkdng klnsldkgn lksdng lknsdlkg nlskdngl knsdlkg nlksdn g skndglksndg lknsdlkg nskldng klsndg lksndg klnsdklg nlksndgl knsdlkgn klsdngkl sndglk sdnglskdng lk<a id="wordCountUnique"></a><br>
+    Unique word count: <a id="wordCountUnique"></a><br>
+    file contents: <br><textarea id="fileContents" readonly></textarea><br>
   </div>
   <div id="submissions">
   <?php
@@ -73,10 +80,11 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
   $sql = "SELECT * FROM paper, student WHERE student.student_id = paper.student_id AND student.student_name = '".$_SESSION['login']."'";
   $result = $conn->query($sql);
   //$_SESSION['sub_count'] = $result->num_rows;
+  $test = "Hetta er content";
   if ($result->num_rows > 0) {
       // Output submissions
       while($row = $result->fetch_assoc()) {
-        echo "<button class='borderButton' onclick='populateContent(\"$row[paper_display_name]\", \"$row[number_of_words]\", \"$row[number_of_unique_words]\")'><img src='img/read.png' alt='Info' height='12' width='12' title='Info'></img></button>";
+        echo "<button class='borderButton' onclick='populateContent(\"$row[paper_display_name]\", \"$row[number_of_words]\", \"$row[number_of_unique_words]\", getFileName(\"$row[test]\"))'><img src='img/read.png' alt='Info' height='12' width='12' title='Info'></img></button>";
         echo " " . $row["paper_name"] . "<br>";
       }
   } else {
