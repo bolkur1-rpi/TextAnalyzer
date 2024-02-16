@@ -134,6 +134,7 @@ SET student_exists = (SELECT IF(EXISTS(SELECT student_id FROM student WHERE stud
 -- SET student_exists = (SELECT IF (IFNULL((SELECT student_id INTO student_id_var FROM student WHERE student_name = student_name_var), 1) = 1), 1, 0);
 -- If student exists, create new paper
 IF (SELECT student_exists = 1) THEN
+        SET student_id_var = (SELECT student_id FROM student WHERE student_name = student_name_var);
         INSERT INTO paper(paper_name, paper_display_name, number_of_words, number_of_unique_words, student_id)
         VALUES (paper_name_var, paper_display_name_var, number_of_words_var, number_of_unique_words_var, student_id_var);
 END IF;
