@@ -9,6 +9,11 @@
 <?php
 session_start();
 if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
+
+function getFileContents($fileName) {
+  $output = file_get_contents("../uploads/".$fileName.".txt");
+  return $output;
+}
 ?>
 
 <script>
@@ -58,11 +63,6 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
   if (isset($_POST['reset'])) {
     session_destroy();
     header("Location: /php/login.php");
-  }
-
-  function getFileContents($fileName) {
-    $output = file_get_contents("../uploads/".$fileName.".txt");
-    return $output;
   }
 
   $servername = "localhost";
