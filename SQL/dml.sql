@@ -169,4 +169,3 @@ INSERT INTO paper(paper_name, paper_display_name, number_of_words, number_of_uni
 VALUES (paper_name_var, paper_display_name_var, number_of_words_var, number_of_unique_words_var, student_id_var);
 END $$
 DELIMITER ;
-*/
