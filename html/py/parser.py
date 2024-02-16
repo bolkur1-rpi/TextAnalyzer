@@ -38,21 +38,21 @@ def execute_query(connection, query):
     except Error as e:
         print(f'Feilur "{e}" hendi')
 
-def query_builder(filename, title, number_of_words, number_of_unique_words, id):
-    q = "CALL createNewPaper(" + "'" + filename + "', " + str(title) + ', ' + str(number_of_words) + ', ' + str(number_of_unique_words) +  + str(id) + ");"
+def query_builder(filename, title, number_of_words, number_of_unique_words, name_of_student):
+    q = "CALL createNewPaper(" + "'" + filename + "', " + str(title) + ', ' + str(number_of_words) + ', ' + str(number_of_unique_words) +  + str(name_of_student) + ");"
     return q
 
 
 
-def id_query(connection, name):
-    cursor = connection.cursor()
-    try:
-        id = cursor.callproc('getStudentIdByName', name)
-        connection.commit()
-        print("Query succ")
-        return id
-    except Error as e:
-        print(f'Feilur "{e}" hendi')
+#def id_query(connection, name):
+#    cursor = connection.cursor()
+#    try:
+#        id = cursor.callproc('getStudentIdByName', name)
+#        connection.commit()
+#        print("Query succ")
+#        return id
+#    except Error as e:
+#        print(f'Feilur "{e}" hendi')
 
 
 
@@ -100,22 +100,23 @@ def uniqueWordAmount(words):
     unique.sort()
     return unique
 
-def check(check, name):
-    if(check == 0):
-        create_user = "CALL createNewStudent(" + name + ");"
-        execute_query(connection, create_user)
+#def check(check, name):
+#    if(check == 0):
+#        create_user = "CALL createNewStudent(" + name + ");"
+#        execute_query(connection, create_user)
 
 
 
 
-check(check, name)
-id = id_query(name)
+#check(check, name)
+#id = id_query(name)
+
 random_name = randomizeName()
 text = fileHandler(title, random_name)
 words = getWords(text)
 word_amount = amount(words)
 unique = uniqueWordAmount(words)
 unique_amount = amount(unique)
-add = query_builder(random_name, title, word_amount, unique_amount, id)
+add = query_builder(random_name, title, word_amount, unique_amount, name)
 execute_query(connection, add)
 connection.close()
