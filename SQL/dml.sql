@@ -122,7 +122,6 @@ DELIMITER ;
 -- ------------------------------------
 --          CREATE NEW PAPER
 -- ------------------------------------
-USE linux_db;
 DROP PROCEDURE IF EXISTS createNewPaper;
 DELIMITER $$
 CREATE PROCEDURE createNewPaper(IN paper_name_var VARCHAR(255), IN paper_display_name_var VARCHAR(255), IN number_of_words_var INT, IN number_of_unique_words_var INT, IN student_name_var VARCHAR(255))
