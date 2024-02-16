@@ -19,7 +19,8 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
             return req.responseText;
         }
     }
-    var path = "../uploads/" + fileName + ".txt";
+    //var path = "../uploads/" + fileName + ".txt";
+    var path = "../uploads/test.txt";
     req.open("GET", path);
     req.send();
   }
