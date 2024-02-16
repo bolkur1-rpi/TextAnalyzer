@@ -21,9 +21,10 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
   req.onreadystatechange = function() {
       if (req.readyState == 4 && req.status == 200) {
         console.log(req.responseText);
-        return req.responseText;
+        break;
       }
     }
+    return req.responseText;
   }
 
   function populateContent(fileName, words, uniqueWords, fileContents) {
