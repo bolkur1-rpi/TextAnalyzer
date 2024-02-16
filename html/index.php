@@ -14,15 +14,15 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 <script>
   function getFileContents(fileName) {
     var req = new XMLHttpRequest();
+    //var path = "../uploads/" + fileName + ".txt";
+    var path = "../uploads/test.txt";
+    req.open("GET", path);
+    req.send();
     req.onreadystatechange = function() {
         if (req.readyState == 4 && req.status == 200) {
             return req.responseText;
         }
     }
-    //var path = "../uploads/" + fileName + ".txt";
-    var path = "../uploads/test.txt";
-    req.open("GET", path);
-    req.send();
   }
 
   function populateContent(fileName, words, uniqueWords, fileContents) {
