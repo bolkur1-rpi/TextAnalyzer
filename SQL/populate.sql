@@ -61,31 +61,31 @@ CALL createNewStudent('Oli');
 -- ----------------------------------------
 
 -- paper_id: 1
-CALL createNewPaper('filename1', 'Uppgava hja Jogvan', 600, 5, 1);
+CALL createNewPaper('filename1', 'Uppgava hja Jogvan', 600, 5, 'Jogvan');
 -- paper_id: 2
-CALL createNewPaper('filename2', 'Uppgava hja Olivur', 250, 20, 2);
+CALL createNewPaper('filename2', 'Uppgava hja Olivur', 250, 20, 'Olivur');
 -- paper_id: 3
-CALL createNewPaper('filename3', 'Uppgava hja Johan Bjartur', 820, 100, 3);
+CALL createNewPaper('filename3', 'Uppgava hja Johan Bjartur', 820, 100, 'Johan Bjartur');
 -- paper_id: 4
-CALL createNewPaper('filename4', 'Uppgava hja Ingmar', 500, 499, 4);
+CALL createNewPaper('filename4', 'Uppgava hja Ingmar', 500, 499, 'Ingmar');
 -- paper_id: 5
-CALL createNewPaper('filename5', 'Uppgava hja Teitur', 120, 50, 5);
+CALL createNewPaper('filename5', 'Uppgava hja Teitur', 120, 50, 'Teitur');
 -- paper_id: 6
-CALL createNewPaper('filename6', 'Uppgava hja Per', 720, 75, 6);
+CALL createNewPaper('filename6', 'Uppgava hja Per', 720, 75, 'Per');
 -- paper_id: 7
-CALL createNewPaper('filename7', 'Uppgava hja Per', 230, 50, 7);
+CALL createNewPaper('filename7', 'Uppgava hja Per', 230, 50, 'Per');
 -- paper_id: 8
-CALL createNewPaper('filename8', 'Roman', 10000, 500, 1);
+CALL createNewPaper('filename8', 'Roman', 10000, 500, 'Jogvan');
 -- paper_id: 9
-CALL createNewPaper('filename9', 'Novel', 1200, 460, 2);
+CALL createNewPaper('filename9', 'Novel', 1200, 460, 'Olivur');
 -- paper_id: 10
-CALL createNewPaper('filename10', 'Stuttsoga', 800, 200, 3);
+CALL createNewPaper('filename10', 'Stuttsoga', 800, 200, 'Johan Bjartur');
 -- paper_id: 11
-CALL createNewPaper('filename11', 'Ordabok', 75000, 75000, 4);
+CALL createNewPaper('filename11', 'Ordabok', 75000, 75000, 'Ingmar');
 -- paper_id: 12
-CALL createNewPaper('filename12', 'Dokumentation', 2400, 320, 5);
+CALL createNewPaper('filename12', 'Dokumentation', 2400, 320, 'Teitur');
 -- paper_id: 13
-CALL createNewPaper('filename13', 'Notatir', 76, 50, 6);
+CALL createNewPaper('filename13', 'Notatir', 76, 50, 'Per');
 -- paper_id: 14
-CALL createNewPaper('filename14', 'Dagbok', 760, 165, 1);
+CALL createNewPaper('filename14', 'Dagbok', 760, 165, 'Jogvan');
 
