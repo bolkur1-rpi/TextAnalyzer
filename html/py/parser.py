@@ -70,7 +70,7 @@ def fileHandler(title, rname):
 
 def randomizeName():
     rn = ""
-    cset = string.ascii_uppercase + string.digits
+    cset = string.ascii_uppercase
     ctr = 10
     while(ctr > 0):
         rn += random.choice(cset)
