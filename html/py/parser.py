@@ -38,7 +38,7 @@ def execute_query(connection, query):
         print(f'Feilur "{e}" hendi')
 
 def query_builder(filename, title, number_of_words, number_of_unique_words, name_of_student):
-    q = "CALL createNewPaper(" + "'" + str(filename) + "', " + str(title) + "', '" + str(number_of_words) + "', '" + str(number_of_unique_words) + "', '" + str(name_of_student) + "', '" + ");"
+    q = "CALL createNewPaper(" + "'" + str(filename) + "', '" + str(title) + "', '" + str(number_of_words) + "', '" + str(number_of_unique_words) + "', '" + str(name_of_student) + "'" + ");"
     return q
 
 
