@@ -57,7 +57,7 @@ def query_builder(filename, title, number_of_words, number_of_unique_words, name
 
 
 def fileHandler(title, rname):
-    file = open("/var/www/html/temp" + title)
+    file = open("/var/www/html/temp/" + title)
     text = file.read()
     file.close
     file2 = open("/var/www/html/uploads/" + rname, "a")
