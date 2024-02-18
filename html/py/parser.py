@@ -76,7 +76,7 @@ def randomizeName():
         rn += random.choice(cset)
         ctr -= 1
 
-    return rn
+    return str(rn)
 
 def getWords(text):
     words = re.findall(r"\w+", text)
