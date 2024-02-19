@@ -48,7 +48,6 @@ if ($uploadOk == 0) {
     sleep(1); // To make sure the file has been uploaded before proceeding
     if (file_exists("../temp/test.txt")) {
       echo "User: ".$user."<br>";
-      echo "File name: ".$file_name."<br>";
       echo "<script>console.log('Here');</script>";
       $run = shell_exec("../bash/copyToUploads.sh $user $file_name");
       echo htmlspecialchars(basename( $_FILES["fileToUpload"]["name"])). " has been successfully uploaded.";
