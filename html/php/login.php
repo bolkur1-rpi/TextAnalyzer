@@ -30,8 +30,7 @@ session_start();
       header("Location: ../index.php");
 
     } else {
-      echo "Please enter a user.";
-      echo "Spaces not allowed.";
+      echo nl2br ("Please enter a user. \n Spaces not allowed.");
     }
   }
 
