@@ -91,11 +91,11 @@ def uniqueWordAmount(words):
 
     for word in words:
         word = word.lower()
-    if word not in unique and word not in duplicate:
-        unique.append(word)
-    elif word in unique:
-        unique.remove(word)
-        duplicate.append(word)
+        if word not in unique and word not in duplicate:
+            unique.append(word)
+        elif word in unique:
+            unique.remove(word)
+            duplicate.append(word)
     unique.sort()
     return unique
 
