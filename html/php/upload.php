@@ -38,7 +38,7 @@ if ($fileType != "txt" && !empty(basename($_FILES["fileToUpload"]["name"]))) {
   $uploadOk = 0;
 }
 
-if (if(strlen(trim(file_get_contents($target_file))) <= 0)) {
+if (strlen(trim(file_get_contents($target_file))) <= 0) {
   echo "File is empty or contains no text.";
   $uploadOk = 0;
 }
