@@ -9,8 +9,8 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 
 $target_dir = "../temp/";
 $user = $_SESSION['login'];
-$file_name = str_replace(' ', '', basename($_FILES["fileToUpload"]["name"]));
-$target_file = $target_dir . str_replace(' ', '', basename($_FILES["fileToUpload"]["name"]));
+$file_name = str_replace(' ', '_', basename($_FILES["fileToUpload"]["name"]));
+$target_file = $target_dir . str_replace(' ', '_', basename($_FILES["fileToUpload"]["name"]));
 $uploadOk = 1;
 $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
@@ -45,7 +45,8 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-    sleep(1); // To make sure the file has been uploaded before proceeding
+    echo "<script>console.log("\$_FILES["fileToUpload"]["tmp_name"]"\);</script>";
+    //sleep(1); // To make sure the file has been uploaded before proceeding
     if (file_exists("../temp/test.txt")) {
       echo "User: ".$user."<br>";
       echo "<script>console.log('Here');</script>";
