@@ -60,7 +60,7 @@ def fileHandler(title, rname):
     file = open("/var/www/html/temp/" + title)
     text = file.read()
     file.close
-    file2 = open("/var/www/html/uploads/" + rname, "a")
+    file2 = open("/var/www/html/uploads/" + rname + ".txt", "a")
     os.remove("/var/www/html/temp/" + title)
     for line in text:
         file2.write(line)
