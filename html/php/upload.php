@@ -46,10 +46,7 @@ if ($uploadOk == 0) {
 } else {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
     echo $_FILES["fileToUpload"]["tmp_name"];
-    //sleep(1); // To make sure the file has been uploaded before proceeding
     if (file_exists($target_file)) {
-      echo "User: ".$user."<br>";
-      echo "<script>console.log('Here');</script>";
       $run = shell_exec("../bash/copyToUploads.sh $user $file_name");
       echo htmlspecialchars(basename( $_FILES["fileToUpload"]["name"])). " has been successfully uploaded.";
       echo "<br><a href='../'> Go back </a>";
