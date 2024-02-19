@@ -33,12 +33,12 @@ if ($_FILES["fileToUpload"]["size"] > 50000 && !(file_exists($target_file))) {
 }
 
 // Allow certain file formats
-if ($fileType != "txt" && !empty(basename($_FILES["fileToUpload"]["tmp_name"]))) {
+if ($fileType != "txt" && !empty(basename($_FILES["fileToUpload"]["name"]))) {
   echo "Only .txt files allowed.";
   $uploadOk = 0;
 }
 
-if (strlen(trim(file_get_contents($_FILES["fileToUpload"]["name"]))) <= 0) {
+if (strlen(trim(file_get_contents($_FILES["fileToUpload"]["tmp_name"]))) <= 0) {
   echo "File is empty or contains no text.";
   $uploadOk = 0;
 }
