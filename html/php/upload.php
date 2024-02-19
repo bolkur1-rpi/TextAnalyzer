@@ -9,8 +9,8 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
 
 $target_dir = "../temp/";
 $user = $_SESSION['login'];
-$file_name = str_replace(' ', '_', basename($_FILES["fileToUpload"]["name"]));
-$target_file = $target_dir . str_replace(' ', '_', basename($_FILES["fileToUpload"]["name"]));
+$file_name = str_replace(' ', '', basename($_FILES["fileToUpload"]["name"]));
+$target_file = $target_dir . str_replace(' ', '', basename($_FILES["fileToUpload"]["name"]));
 $uploadOk = 1;
 $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
