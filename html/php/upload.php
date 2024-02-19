@@ -49,6 +49,7 @@ if ($uploadOk == 0) {
     if (file_exists("../temp/test.txt")) {
       echo "User: ".$user."<br>";
       echo "File name: ".$file_name."<br>";
+      echo "<script>console.log('Here');</script>";
       $run = shell_exec("../bash/copyToUploads.sh $user $file_name");
       echo htmlspecialchars(basename( $_FILES["fileToUpload"]["name"])). " has been successfully uploaded.";
       echo "<br><a href='../'> Go back </a>";
