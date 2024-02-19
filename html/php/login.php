@@ -25,12 +25,12 @@ session_start();
   if (isset($_POST['login'])){
     $text = $_POST['login_value'];
 
-    if (!empty($text) && trim($text) == $text) {
+    if (!empty($text) && str_replace(' ', '', ($text)) == $text) {
       $_SESSION["login"] = $text;
       header("Location: ../index.php");
 
     } else {
-      echo "Please enter a user.";
+      echo "Please enter a user. Spaces not allowed";
     }
   }
 
