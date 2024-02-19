@@ -25,7 +25,7 @@ session_start();
   if (isset($_POST['login'])){
     $text = $_POST['login_value'];
 
-    if (!empty($text)) {
+    if (!empty($text) && trim($text) == $text) {
       $_SESSION["login"] = $text;
       header("Location: ../index.php");
 
