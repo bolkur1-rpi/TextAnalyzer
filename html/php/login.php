@@ -25,13 +25,13 @@ session_start();
   if (isset($_POST['login'])){
     $text = $_POST['login_value'];
 
-    //if (!empty($text) && str_replace(' ', '', ($text)) == $text) {
+    // Checks if login string is empty and if it contains no spaces or non-alphabetical characters
     if (!empty($text) && ctype_alpha($text)) {
       $_SESSION["login"] = $text;
       header("Location: ../index.php");
 
     } else {
-      echo nl2br ("Please enter a user. \n Spaces not allowed.");
+      echo nl2br ("Please enter a user. \n Spaces not allowed. \n Only alphabetical characters.");
     }
   }
 
