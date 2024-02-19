@@ -33,7 +33,7 @@ if ($_FILES["fileToUpload"]["size"] > 50000 && !(file_exists($target_file))) {
 }
 
 // Allow certain file formats
-if ($fileType != "txt" && !empty(basename($_FILES["fileToUpload"]["name"]))) {
+if ($fileType != "txt" && !empty(basename($_FILES["fileToUpload"]["tmp_name"]))) {
   echo "Only .txt files allowed.";
   $uploadOk = 0;
 }
