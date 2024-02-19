@@ -38,7 +38,8 @@ if ($fileType != "txt" && !empty(basename($_FILES["fileToUpload"]["name"]))) {
   $uploadOk = 0;
 }
 
-if (str_replace(' ', '', (file_get_contents($_FILES["fileToUpload"]["tmp_name"]))) == file_get_contents($_FILES["fileToUpload"]["tmp_name"])) {
+// Checks if file is empty or contains only whitespace
+if (strlen(trim(file_get_contents($_FILES["fileToUpload"]["tmp_name"]))) <= 0) {
   echo "File is empty or contains no text.";
   $uploadOk = 0;
 }
