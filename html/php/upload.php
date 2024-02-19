@@ -45,7 +45,7 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-    echo "<script>console.log("\$_FILES["fileToUpload"]["tmp_name"]"\);</script>";
+    echo "<script>console.log($_FILES["fileToUpload"]["tmp_name"]);</script>";
     //sleep(1); // To make sure the file has been uploaded before proceeding
     if (file_exists("../temp/test.txt")) {
       echo "User: ".$user."<br>";
