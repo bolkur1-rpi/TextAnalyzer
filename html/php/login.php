@@ -25,7 +25,8 @@ session_start();
   if (isset($_POST['login'])){
     $text = $_POST['login_value'];
 
-    if (!empty($text) && str_replace(' ', '', ($text)) == $text) {
+    //if (!empty($text) && str_replace(' ', '', ($text)) == $text) {
+    if (!empty($text) && ctype_alpha($text)) {
       $_SESSION["login"] = $text;
       header("Location: ../index.php");
 
