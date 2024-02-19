@@ -38,10 +38,10 @@ if ($fileType != "txt" && !empty(basename($_FILES["fileToUpload"]["name"]))) {
   $uploadOk = 0;
 }
 
-if (strlen(trim(file_get_contents($target_file))) <= 0) {
-  echo "File is empty or contains no text.";
-  $uploadOk = 0;
-}
+//if (strlen(trim(file_get_contents($target_file))) <= 0) {
+//  echo "File is empty or contains no text.";
+//  $uploadOk = 0;
+//}
 
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
@@ -51,6 +51,7 @@ if ($uploadOk == 0) {
 } else {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
     if (file_exists($target_file)) {
+      echo basename($_FILES["fileToUpload"]["name"]);
       $run = shell_exec("../bash/copyToUploads.sh $user $file_name");
       echo htmlspecialchars(basename( $_FILES["fileToUpload"]["name"])). " has been successfully uploaded.";
       echo "<br><a href='../'> Go back </a>";
