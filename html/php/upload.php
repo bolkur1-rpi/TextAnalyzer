@@ -33,8 +33,13 @@ if ($_FILES["fileToUpload"]["size"] > 50000 && !(file_exists($target_file))) {
 }
 
 // Allow certain file formats
-if($fileType != "txt" && !empty(basename($_FILES["fileToUpload"]["name"]))) {
+if ($fileType != "txt" && !empty(basename($_FILES["fileToUpload"]["name"]))) {
   echo "Only .txt files allowed.";
+  $uploadOk = 0;
+}
+
+if (if(strlen(trim(file_get_contents($target_file))) <= 0)) {
+  echo "File is empty or contains no text.";
   $uploadOk = 0;
 }
 
@@ -45,7 +50,6 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-    echo $_FILES["fileToUpload"]["tmp_name"];
     if (file_exists($target_file)) {
       $run = shell_exec("../bash/copyToUploads.sh $user $file_name");
       echo htmlspecialchars(basename( $_FILES["fileToUpload"]["name"])). " has been successfully uploaded.";
