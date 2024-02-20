@@ -1,3 +1,6 @@
+DROP DATABASE textdb;
+CREATE DATABASE textdb;
+
 USE textdb;
 
 SET FOREIGN_KEY_CHECKS = 0;
