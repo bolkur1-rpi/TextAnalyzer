@@ -1,4 +1,4 @@
-DROP DATABASE textdb;
+DROP DATABASE IF EXISTS textdb;
 CREATE DATABASE textdb;
 
 USE textdb;
