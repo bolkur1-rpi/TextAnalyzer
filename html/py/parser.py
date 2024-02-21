@@ -24,9 +24,7 @@ def create_connection(host_name, user_name, user_password, db_name):
         print(f"The Error '{e}' occured")
     return connection
 
-connection = create_connection("localhost", "root", "bolkur1", "textdb")
-
-
+connection = create_connection("127.0.0.1", "root", "bolkur1", "textdb")
 
 def execute_query(connection, query):
     cursor = connection.cursor()
@@ -41,21 +39,6 @@ def query_builder(filename, title, number_of_words, number_of_unique_words, name
     q = "CALL createNewPaper(" + "'" + str(filename) + "', '" + str(title) + "', '" + str(number_of_words) + "', '" + str(number_of_unique_words) + "', '" + str(name_of_student) + "'" + ");"
     return q
 
-
-
-#def id_query(connection, name):
-#    cursor = connection.cursor()
-#    try:
-#        id = cursor.callproc('getStudentIdByName', name)
-#        connection.commit()
-#        print("Query succ")
-#        return id
-#    except Error as e:
-#        print(f'Feilur "{e}" hendi')
-
-
-
-
 def fileHandler(title, rname):
     file = open("/var/www/html/temp/" + title)
     text = file.read()
@@ -66,7 +49,6 @@ def fileHandler(title, rname):
         file2.write(line)
 
     return text
-
 
 def randomizeName():
     rn = ""
@@ -98,17 +80,6 @@ def uniqueWordAmount(words):
             duplicate.append(word)
     unique.sort()
     return unique
-
-#def check(check, name):
-#    if(check == 0):
-#        create_user = "CALL createNewStudent(" + name + ");"
-#        execute_query(connection, create_user)
-
-
-
-
-#check(check, name)
-#id = id_query(name)
 
 random_name = randomizeName()
 text = fileHandler(title, random_name)
