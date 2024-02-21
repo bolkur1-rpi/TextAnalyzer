@@ -137,7 +137,7 @@ SET student_exists = (SELECT IF(EXISTS(SELECT student_id FROM student WHERE stud
 IF (SELECT student_exists = 1) THEN
         SET student_id_var = (SELECT student_id FROM student WHERE student_name = student_name_var);
         INSERT INTO paper(paper_name, paper_display_name, number_of_words, number_of_unique_words, number_of_sentences, number_of_paragraphs, words_per_sentence, sentences_per_paragraph, student_id)
-        VALUES (paper_name_var, paper_display_name_var, number_of_words_var, number_of_unique_words_var, number_of_sentences_var, number_of_paragraphs_var, words_per_sentence_var, sentences_per_paragraphs_var, student_id_var);
+        VALUES (paper_name_var, paper_display_name_var, number_of_words_var, number_of_unique_words_var, number_of_sentences_var, number_of_paragraphs_var, words_per_sentence_var, sentences_per_paragraph_var, student_id_var);
 END IF;
 -- If student doesnt exist, create new student and new paper
 IF (SELECT student_exists = 0) THEN
@@ -145,7 +145,7 @@ IF (SELECT student_exists = 0) THEN
         VALUES (student_name_var);
         SET student_id_var = LAST_INSERT_ID();
         INSERT INTO paper(paper_name, paper_display_name, number_of_words, number_of_unique_words, number_of_sentences, number_of_paragraphs, words_per_sentence, sentences_per_paragraph, student_id)
-        VALUES (paper_name_var, paper_display_name_var, number_of_words_var, number_of_unique_words_var, number_of_sentences_var, number_of_paragraphs_var, words_per_sentence_var, sentences_per_paragraphs_var, student_id_var);
+        VALUES (paper_name_var, paper_display_name_var, number_of_words_var, number_of_unique_words_var, number_of_sentences_var, number_of_paragraphs_var, words_per_sentence_var, sentences_per_paragraph_var, student_id_var);
 END IF;
 END $$
 DELIMITER ;
