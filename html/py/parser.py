@@ -35,8 +35,8 @@ def execute_query(connection, query):
     except Error as e:
         print(f'Feilur "{e}" hendi')
 
-def query_builder(filename, title, number_of_words, number_of_unique_words, name_of_student):
-    q = "CALL createNewPaper(" + "'" + str(filename) + "', '" + str(title) + "', '" + str(number_of_words) + "', '" + str(number_of_unique_words) + "', '" + str(name_of_student) + "'" + ");"
+def query_builder(filename, title, number_of_words, number_of_unique_words, sentence_amount, paragraph_amount, words_pr_sentence, sentence_pr_paragraph, name_of_student):
+    q = "CALL createNewPaper(" + "'" + str(filename) + "', '" + str(title) + "', '" + str(number_of_words) + "', '" + str(number_of_unique_words) + "', '" + str(sentence_amount) + "', '" + str(paragraph_amount) + "', '" + str(words_pr_sentence) + "', '" + str(sentence_pr_paragraph) + "', '" + str(name_of_student) + "'" + ");"
     return q
 
 def fileHandler(title, rname):
@@ -81,12 +81,29 @@ def uniqueWordAmount(words):
     unique.sort()
     return unique
 
+def getParagraph(text):
+    para = re.split("\n\n", text)
+    return para
+
+def getSentence(someText):
+    sentence = re.split("\.", someText)
+    return sentence
+
+def average(some1, some2):
+    return (some1 / some2)
+
 random_name = randomizeName()
 text = fileHandler(title, random_name)
 words = getWords(text)
 word_amount = amount(words)
 unique = uniqueWordAmount(words)
 unique_amount = amount(unique)
-add = query_builder(random_name, title, word_amount, unique_amount, name)
+sentence = getSentence(text)
+paragraph = getParagraph(text)
+sentence_amount = amount(sentence)
+paragraph_amount = amount(paragraph)
+words_pr_sentence = average(words, sentence)
+sentence_pr_paragraf = average(sentence, paragrapph)
+add = query_builder(random_name, title, word_amount, unique_amount, sentence_amount, paragraph_amount, words_pr_sentence, sentence_pr_paragraf, name)
 execute_query(connection, add)
 connection.close()
