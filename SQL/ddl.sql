@@ -21,7 +21,7 @@ CREATE TABLE paper(
     paper_display_name VARCHAR(255) NOT NULL,
     number_of_words INT NOT NULL,
     number_of_unique_words INT NOT NULL,
-    number_of_senteces INT NOT NULL,
+    number_of_sentences INT NOT NULL,
     number_of_paragraphs INT NOT NULL,
     words_per_sentence FLOAT NOT NULL,
     sentences_per_paragraph FLOAT NOT NULL,
