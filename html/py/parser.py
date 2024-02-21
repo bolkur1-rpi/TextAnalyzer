@@ -24,7 +24,7 @@ def create_connection(host_name, user_name, user_password, db_name):
         print(f"The Error '{e}' occured")
     return connection
 
-connection = create_connection("127.0.0.1", "root", "bolkur1", "textdb")
+connection = create_connection("localhost", "root", "bolkur1", "textdb")
 
 def execute_query(connection, query):
     cursor = connection.cursor()
