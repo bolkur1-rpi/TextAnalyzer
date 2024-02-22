@@ -1,5 +1,5 @@
 FROM mysql
-COPY /home/repo/TextAnalyzer/docker-SQL /docker-entrypoint-initdb.d
+COPY ./docker-SQL /docker-entrypoint-initdb.d
 EXPOSE 3306
 
 FROM ubuntu
