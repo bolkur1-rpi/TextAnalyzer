@@ -34,18 +34,6 @@ END $$
 DELIMITER ;
 
 -- ------------------------------------
---  RETURN STUDENT ID BY STUDENT NAME
--- ------------------------------------
-/*
-DROP PROCEDURE IF EXISTS returnStudentIdByName;
-DELIMITER $$
-CREATE PROCEDURE returnStudentIdByName(IN student_name_var VARCHAR(255), OUT student_id_var INT)
-BEGIN
-SELECT IFNULL((SELECT student_id INTO student_id_var FROM student WHERE student_name = student_name_var), 0);
-END $$
-DELIMITER ;
-*/
--- ------------------------------------
 --         SELECT ALL PAPER ID
 -- ------------------------------------
 DROP PROCEDURE IF EXISTS getAllPaperNames;

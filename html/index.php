@@ -72,7 +72,7 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
     header("Location: /php/login.php");
   }
 
-  $servername = "127.0.0.1";
+  $servername = trim(file_get_contents("servername.txt"));
   $username = "root";
   $password = "bolkur1";
   $dbname = "textdb";

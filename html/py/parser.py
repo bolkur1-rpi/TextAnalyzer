@@ -24,7 +24,12 @@ def create_connection(host_name, user_name, user_password, db_name):
         print(f"The Error '{e}' occured")
     return connection
 
-connection = create_connection("127.0.0.1", "root", "bolkur1", "textdb")
+# Used in Docker
+file = open("../servername.txt")
+text = file.read()
+file.close
+servername = text.strip()
+connection = create_connection(servername, "root", "bolkur1", "textdb")
 
 def execute_query(connection, query):
     cursor = connection.cursor()
