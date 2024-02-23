@@ -149,23 +149,3 @@ IF (SELECT student_exists = 0) THEN
 END IF;
 END $$
 DELIMITER ;
-/*
-DROP PROCEDURE IF EXISTS createNewPaper;
-DELIMITER $$
-CREATE PROCEDURE createNewPaper(IN paper_name_var VARCHAR(255), IN paper_display_name_var VARCHAR(255), IN number_of_words_var INT, IN number_of_unique_words_var INT, IN student_name_var INT)
-BEGIN
-DECLARE student_id_temp_var INT;
-DECLARE student_exists INT; -- 1 if it exists, 0 if it doesnt exist
--- If student name exists, create new paper, if it doesnt exist then create new student, then create new paper
-
-SET student_exists = (SELECT IF (IFNULL((SELECT student_id INTO student_id_temp_var FROM student WHERE student_name = student_name_var), 1) = 1), 1, 0);
-IF SELECT student_exists = 1 THEN
-
-
-SELECT IF(, "Yes: Create Paper", "No: Create Student, then create paper");
--- CALL returnStudentIdByName(student_name_var, student_id_temp_var);
-SELECT @student_id_temp_var;
-INSERT INTO paper(paper_name, paper_display_name, number_of_words, number_of_unique_words, student_id)
-VALUES (paper_name_var, paper_display_name_var, number_of_words_var, number_of_unique_words_var, student_id_var);
-END $$
-DELIMITER ;
