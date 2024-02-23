@@ -7,7 +7,6 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update; apt dist-upgrade -y
 RUN apt install apache2 php-mysql pip -y
 RUN pip install mysql-connector-python
-WORKDIR /var/www/html
-COPY ./html .
+COPY ./html /var/www/html
 EXPOSE 80
 ENTRYPOINT apache2ctl -D FOREGROUND
