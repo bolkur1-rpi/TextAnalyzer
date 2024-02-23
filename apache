@@ -8,4 +8,5 @@ COPY ./html /var/www/html
 WORKDIR /var/www/html
 RUN rm index.html
 RUN ls
+EXPOSE 80
 ENTRYPOINT apache2ctl -D FOREGROUND
