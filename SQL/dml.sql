@@ -141,11 +141,15 @@ IF (SELECT student_exists = 1) THEN
 END IF;
 -- If student doesnt exist, create new student and new paper
 IF (SELECT student_exists = 0) THEN
+        SET autocommit=0;
+        LOCK TABLES student WRITE;
         INSERT INTO student(student_name)
         VALUES (student_name_var);
         SET student_id_var = LAST_INSERT_ID();
         INSERT INTO paper(paper_name, paper_display_name, number_of_words, number_of_unique_words, number_of_sentences, number_of_paragraphs, words_per_sentence, sentences_per_paragraph, student_id)
         VALUES (paper_name_var, paper_display_name_var, number_of_words_var, number_of_unique_words_var, number_of_sentences_var, number_of_paragraphs_var, words_per_sentence_var, sentences_per_paragraph_var, student_id_var);
+        COMMIT;
+        UNLOCK TABLES;
 END IF;
 END $$
 DELIMITER ;
