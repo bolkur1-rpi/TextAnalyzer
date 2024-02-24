@@ -24,14 +24,14 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
     }
   }
 
-  function populateContent(fileName, words, uniqueWords, fileContents) {
+  function populateContent(fileName, wordCount, uniqueWordCount, sentenceCount, paragraphCount, wordsPerSentence, sentencesPerParagraph, fileContents) {
     document.getElementById("displayName").innerHTML = fileName;
-    document.getElementById("wordCount").innerHTML = words;
-    document.getElementById("wordCountUnique").innerHTML = uniqueWords;
-    document.getElementById("sentenceCount").innerHTML = words;
-    document.getElementById("paragraphCount").innerHTML = uniqueWords;
-    document.getElementById("wordsPerSentence").innerHTML = words;
-    document.getElementById("sentencesPerParagraph").innerHTML = uniqueWords;
+    document.getElementById("wordCount").innerHTML = wordCount;
+    document.getElementById("wordCountUnique").innerHTML = uniqueWordCount;
+    document.getElementById("sentenceCount").innerHTML = sentenceCount;
+    document.getElementById("paragraphCount").innerHTML = paragraphCount;
+    document.getElementById("wordsPerSentence").innerHTML = wordsPerSentence;
+    document.getElementById("sentencesPerParagraph").innerHTML = sentencesPerParagraph;
     document.getElementById("fileContents").innerHTML = fileContents;
   }
 </script>
