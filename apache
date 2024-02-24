@@ -11,4 +11,4 @@ RUN rm index.html
 RUN cat docker-servername.txt > servername.txt
 RUN ls
 EXPOSE 80
-# ENTRYPOINT apache2ctl -D FOREGROUND
+ENTRYPOINT apache2ctl -D FOREGROUND
