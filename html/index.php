@@ -32,6 +32,7 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
     document.getElementById("paragraphCount").innerHTML = paragraphCount;
     document.getElementById("wordsPerSentence").innerHTML = wordsPerSentence;
     document.getElementById("sentencesPerParagraph").innerHTML = sentencesPerParagraph;
+    document.getElementById("fileContents").innerHTML = fileContents;
   }
 </script>
 
