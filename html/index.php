@@ -32,7 +32,6 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
     document.getElementById("paragraphCount").innerHTML = paragraphCount;
     document.getElementById("wordsPerSentence").innerHTML = wordsPerSentence;
     document.getElementById("sentencesPerParagraph").innerHTML = sentencesPerParagraph;
-    document.getElementById("fileContents").innerHTML = fileContents;
   }
 </script>
 
@@ -104,7 +103,8 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
          \"$row[number_of_paragraphs]\", 
          \"$row[words_per_sentence]\", 
          \"$row[sentences_per_paragraph]\", 
-         getFileContents(\"$row[paper_name]\"))'><img src='img/read.png' alt='Info' height='12' width='12' title='Info'></img></button>";
+         getFileContents(\"$row[paper_name]\"))'>
+         <img src='img/read.png' alt='Info' height='12' width='12' title='Info'></img></button>";
         echo " " . $row["paper_display_name"] . "<br>";
       }
   } else {
