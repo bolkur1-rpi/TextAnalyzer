@@ -28,6 +28,10 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
     document.getElementById("displayName").innerHTML = fileName;
     document.getElementById("wordCount").innerHTML = words;
     document.getElementById("wordCountUnique").innerHTML = uniqueWords;
+    document.getElementById("sentenceCount").innerHTML = words;
+    document.getElementById("paragraphCount").innerHTML = uniqueWords;
+    document.getElementById("wordsPerSentence").innerHTML = words;
+    document.getElementById("sentencesPerParagraph").innerHTML = uniqueWords;
     document.getElementById("fileContents").innerHTML = fileContents;
   }
 </script>
@@ -58,6 +62,10 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
     Submission name: <a id="displayName"></a><br>
     Word count: <a id="wordCount"></a><br>
     Unique word count: <a id="wordCountUnique"></a><br>
+    Number of sentences: <a id="sentenceCount"></a><br>
+    Number of paragraphs: <a id="paragraphCount"></a><br>
+    Words per sentence: <a id="wordsPerSentence"></a><br>
+    Sentences per paragraph: <a id="sentencesPerParagraph"></a><br>
     Submission contents: <br><textarea id="fileContents" readonly></textarea><br>
   </div>
   <div id="submissions">
@@ -89,7 +97,14 @@ if(!isset($_SESSION['login'])) { header("Location: /php/login.php"); }
   if ($result->num_rows > 0) {
       // Output submissions
       while($row = $result->fetch_assoc()) {
-        echo "<button class='borderButton' onclick='populateContent(\"$row[paper_display_name]\", \"$row[number_of_words]\", \"$row[number_of_unique_words]\", getFileContents(\"$row[paper_name]\"))'><img src='img/read.png' alt='Info' height='12' width='12' title='Info'></img></button>";
+        echo "<button class='borderButton' onclick='populateContent(\"$row[paper_display_name]\",
+         \"$row[number_of_words]\", 
+         \"$row[number_of_unique_words]\", 
+         \"$row[number_of_sentences]\", 
+         \"$row[number_of_paragraphs]\", 
+         \"$row[words_per_sentence]\", 
+         \"$row[sentences_per_paragraph]\", 
+         getFileContents(\"$row[paper_name]\"))'><img src='img/read.png' alt='Info' height='12' width='12' title='Info'></img></button>";
         echo " " . $row["paper_display_name"] . "<br>";
       }
   } else {
