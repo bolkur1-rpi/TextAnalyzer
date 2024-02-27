@@ -9,6 +9,5 @@ WORKDIR /var/www/html
 RUN rm index.html
 # Sets docker servername, needed for the docker network
 RUN cat docker-servername.txt > servername.txt
-RUN ls
 EXPOSE 80
 ENTRYPOINT apache2ctl -D FOREGROUND
